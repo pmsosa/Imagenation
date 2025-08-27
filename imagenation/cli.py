@@ -12,7 +12,7 @@ from .generator import ImagenationGenerator
 
 def process_single_generation(args):
     """Process single image generation from command line arguments"""
-    generator = ImagenationGenerator()
+    generator = ImagenationGenerator(rate_limit_delay=args.delay)
     
     if args.input_image:
         success = generator.generate_text_image_to_image(
@@ -24,9 +24,9 @@ def process_single_generation(args):
     return success
 
 
-def process_csv_file(csv_path: str):
+def process_csv_file(csv_path: str, rate_limit_delay: float = 12.0):
     """Process CSV file with columns: input_text, input_image_path, output_image_name"""
-    generator = ImagenationGenerator()
+    generator = ImagenationGenerator(rate_limit_delay=rate_limit_delay)
     
     try:
         with open(csv_path, 'r', newline='', encoding='utf-8') as csvfile:
@@ -59,9 +59,9 @@ def process_csv_file(csv_path: str):
         print(f"Error processing CSV file: {e}")
 
 
-def process_json_file(json_path: str):
+def process_json_file(json_path: str, rate_limit_delay: float = 12.0):
     """Process JSON file with entries containing: input_text, input_image_path, output_image_name"""
-    generator = ImagenationGenerator()
+    generator = ImagenationGenerator(rate_limit_delay=rate_limit_delay)
     
     try:
         with open(json_path, 'r', encoding='utf-8') as jsonfile:
@@ -130,13 +130,17 @@ Examples:
     parser.add_argument('--csv', type=str, help='CSV file path for batch processing')
     parser.add_argument('--json', type=str, help='JSON file path for batch processing')
     
+    # Rate limiting arguments
+    parser.add_argument('--delay', type=float, default=12.0, 
+                       help='Delay between API requests in seconds (default: 12.0 for free tier)')
+    
     args = parser.parse_args()
     
     # Validate arguments
     if args.csv:
-        process_csv_file(args.csv)
+        process_csv_file(args.csv, args.delay)
     elif args.json:
-        process_json_file(args.json)
+        process_json_file(args.json, args.delay)
     elif args.input_text and args.output:
         success = process_single_generation(args)
         if not success:
