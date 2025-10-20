@@ -1,8 +1,12 @@
 # Imagenation 🎨
 
+[![PyPI version](https://badge.fury.io/py/imagenation.svg)](https://pypi.org/project/imagenation/)
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 Generate AI Images in Batches with Google's Imagen. Transform text prompts and optional image inputs into stunning visuals, effortlessly.
 
-![Banner](banner.png)
+![Banner](https://raw.githubusercontent.com/pmsosa/imagenation/main/banner.png)
 
 ## Features
 
