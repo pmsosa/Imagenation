@@ -57,5 +57,6 @@ Thumbs.db
 
 # Data Files (optional - uncomment if you don't want to track them)
 *.csv
+example.csv
 *.json
 images/
