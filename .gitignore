@@ -56,3 +56,4 @@ Thumbs.db
 *.csv
 *.json
 images/
+!banner.png

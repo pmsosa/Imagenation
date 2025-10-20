@@ -1,6 +1,8 @@
 # Imagenation 🎨
 
-AI Image Generation Tool using Google's Imagen model. Generate images from text prompts with optional image inputs.
+Generate AI Images in Batches with Google's Imagen. Transform text prompts and optional image inputs into stunning visuals, effortlessly.
+
+![Banner](banner.png)
 
 ## Features
 
