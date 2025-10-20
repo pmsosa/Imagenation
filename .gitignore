@@ -52,8 +52,10 @@ Thumbs.db
 # Logs
 *.log
 
+# Banner
+!banner.png
+
 # Data Files (optional - uncomment if you don't want to track them)
 *.csv
 *.json
 images/
-!banner.png
